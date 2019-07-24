@@ -270,6 +270,149 @@ export class SomeComponent {
 }
 ```
 
+---
+
+### Question 1.12
+
+![Low difficulty][low] 
+Fill in the blanks to display `Hello World!` on the screen.
+
+```ts
+@Component({
+  template: `{= greeting =}`,
+
+
+
+})
+export class SomeComponent {
+  greeting = 'Hello World!';
+}
+```
+
+---
+
+### Question 1.13
+
+![Low difficulty][low] 
+Fill in the blanks to display `<input>` value on the screen.
+
+```ts
+@Component({
+  template: `
+    <input                               >
+    {{ someInput.value }}
+  `,
+})
+export class SomeComponent {}
+```
+
+---
+
+### Question 1.14
+
+![Medium difficulty][medium] 
+Fill in the blanks to make `<button>` disabled. Make sure it gets enabled again, when `isEnabled` is set to `true`.
+
+```ts
+@Component({
+  template: `
+    <button        disabled="              ">
+      CLICK HERE
+    </button>
+  `,
+})
+export class SomeComponent {
+
+  @Input()
+  isEnabled = false;
+
+}
+```
+
+---
+
+### Question 1.15
+
+![Medium difficulty][medium] 
+Fill in the blanks to log the event fired when `<button>` is clicked.
+
+```ts
+@Component({
+  template: `
+    <button       click="log(             )">
+      CLICK HERE
+    </button>
+  `,
+})
+export class SomeComponent {
+
+  log(event: MouseEvent) {
+    console.log(event);
+  }
+
+}
+```
+
+---
+
+### Question 1.16
+
+![High difficulty][high] 
+Fill in the blanks to display `15` on the screen.
+
+```ts
+@Directive({
+  selector: '[appMultiply]',
+})
+export class MultiplyDirective {
+
+  @Input('appMultiplyBe')
+  multiplicand: number;
+
+  @Input('appMultiplyTimes')
+  multiplier: number;
+
+  constructor(
+    private tempRef: TemplateRef<any>,
+    private vcRef: ViewContainerRef,
+  ) {}
+
+  private clearProduct() {
+    this.vcRef.clear();
+  }
+
+  private projectProduct() {
+    this.vcRef.createEmbeddedView(
+      this.tempRef,
+      {
+        $implicit: this.multiplicand * this.multiplier,
+      },
+    );
+  }
+
+  ngOnChanges() {
+    this.clearProduct();
+    this.projectProduct();
+  }
+
+}
+
+@Component({
+  template: `
+    <div                                               >
+      {{ product }}
+    </div>
+  `,
+})
+export class SomeComponent {
+
+  n1 = 5;
+  
+  n2 = 3;
+
+}
+```
+
  
 
 ---
