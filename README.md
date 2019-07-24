@@ -697,6 +697,33 @@ export class SomeDirective {
 export class SomeComponent {}
 ```
 
+---
+
+### Question 2.10
+
+![Medium difficulty][medium] 
+Fill in the blanks to **securely** display the html content on the screen. Note that empty string is just a default value and `content` might be set to any string.
+
+```ts
+@Component({
+  template: `<div [innerHTML]="html"></div>`,
+})
+export class SomeComponent {
+  @Input()
+  content = '';
+
+  get html():         {
+
+
+
+  }
+
+
+
+
+}
+```
+
 
 
 
