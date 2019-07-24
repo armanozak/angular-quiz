@@ -204,7 +204,7 @@ Fill in the blanks to log `Hello World!` on every click on the `<button>`.
   exportAs: 'appSomeDir',
 })
 export class SomeDirective {
-  greeting = 'Hello World!'
+  greeting = 'Hello World!';
 }
 
 
@@ -225,6 +225,47 @@ export class SomeComponent {
   log(message: string): void {
     console.log(message);
   }
+
+}
+```
+
+---
+
+### Question 1.10
+
+![Low difficulty][low] 
+Fill in the blanks to display `Hello World!` on the screen.
+
+```ts
+@Component({
+  template: `<div [               ]="greeting"></div>`,
+})
+export class SomeComponent {
+  greeting = 'Hello World!';
+}
+```
+
+---
+
+### Question 1.11
+
+![Low difficulty][low] 
+Fill in the blanks to add an `aria-label` to it.
+
+```ts
+@Component({
+  template: `
+    <button [                       ]="label">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <path fill="#000" d="M 2.59375 1 C 1.71875 1 1 1.71875 1 2.59375 L 1 12.40625 C 1 13.28125 1.71875 14 2.59375 14 L 12.40625 14 C 13.28125 14 14 13.28125 14 12.40625 L 14 4.042969 L 10.957031 1 Z M 2.59375 2 L 3 2 L 3 5 C 3 5.546875 3.453125 6 4 6 L 10 6 C 10.546875 6 11 5.546875 11 5 L 11 2.457031 L 13 4.457031 L 13 12.40625 C 13 12.742188 12.738281 13 12.40625 13 L 11 13 L 11 10 C 11 9.453125 10.546875 9 10 9 L 5 9 C 4.453125 9 4 9.453125 4 10 L 4 13 L 2.59375 13 C 2.257813 13 2 12.738281 2 12.40625 L 2 2.59375 C 2 2.257813 2.257813 2 2.59375 2 Z M 4 2 L 7 2 L 7 4 L 9 4 L 9 2 L 10 2 L 10 5 L 4 5 Z M 5 10 L 10 10 L 10 13 L 5 13 Z "></path>
+      </svg>
+    </button>
+  `,
+})
+export class SomeComponent {
+
+  @Input()
+  label = 'Save as draft';
 
 }
 ```
@@ -485,6 +526,32 @@ export class SomeComponent {}
   template: `<app-some><app-child></app-child></app-some>`,
 })
 export class ParentComponent {}
+```
+
+---
+
+### Question 2.9
+
+![Medium difficulty][medium] 
+Fill in the blanks to display `Hello World!` on the screen.
+
+```ts
+@Directive({
+  selector: '[appSome]',
+})
+export class SomeDirective {
+
+
+
+  greeting = 'Hello World!';
+
+}
+
+
+@Component({
+  template: `<div appSome></div>`,
+})
+export class SomeComponent {}
 ```
 
 
